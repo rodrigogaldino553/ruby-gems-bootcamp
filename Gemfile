@@ -59,3 +59,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'haml-rails', '~> 2.0'
 gem 'simple_form'
+gem 'faker'
