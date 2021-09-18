@@ -11,4 +11,8 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = favicon_link_tag asset_path("favicon.png")
   %body
+    = render 'layouts/header'
+
+    %p.notice= notice
+    %p.alert= alert
     = yield
