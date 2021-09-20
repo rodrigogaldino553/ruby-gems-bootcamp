@@ -4,7 +4,6 @@ class CoursesController < ApplicationController
   # GET /courses or /courses.json
   def index
     if params[:title]
-      puts '==============================',params[:title]
       @courses = Course.where('title ILIKE ?', "%#{params[:title]}%")
     else
       @courses = Course.all
