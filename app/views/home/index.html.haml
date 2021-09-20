@@ -1,19 +1,18 @@
+.container-fluid.bg-dark.text-light.p-5
+  .container.bg-dark.p-5
+    .display-4
+      What do you want to learn today?
 
-.jumbotron
-  .display-4
-    What do you want to learn today?
+    .p-4
 
-  .p-4
+    .form-inline.my-2.my-lg-0
+      = form_tag(courses_path, method: :get) do
+        .input-group
+          = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
+          %span.input-group-append
+            %button.btn.btn-primary.btn-sm{:type => "submit"}
+              %span.fa.fa-search{"aria-hidden" => "true"}
 
-  .form-inline.my-2.my-lg-0
-    = form_tag(courses_path, method: :get) do
-      .input-group
-        = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
-        %span.input-group-append
-          %button.btn.btn-primary.btn-sm{:type => "submit"}
-            %span.fa.fa-search{"aria-hidden" => "true"}
-
-            
 .card-group
   .card.card-body
     %h1
@@ -48,7 +47,7 @@
 
 %h2
   Popular courses
-.card-columns
+.row.row-cols-1.row-cols-md-3.g-4
   - @courses.each do |course|
     = render 'courses/course', course: course
   
@@ -57,19 +56,19 @@
 %hr
 %h2
   Popular courses
-.card-columns
+.row.row-cols-1.row-cols-md-3.g-4
   - @courses.each do |course|
     = render 'courses/course', course: course
 %hr
 %h2
   Top rated courses
-.card-columns
+.row.row-cols-1.row-cols-md-3.g-4
   - @courses.each do |course|
     = render 'courses/course', course: course
 %hr
 %h2
   Latest courses
-.card-columns
+.row.row-cols-1.row-cols-md-3.g-4
   - @latest_courses.each do |course|
     = render 'courses/course', course: course
 %hr
