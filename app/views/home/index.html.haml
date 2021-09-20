@@ -1,10 +1,74 @@
-%h1 Hello world
+.container-fluid.bg-dark.text-light.p-5
+  .container.bg-dark.p-5
+    .display-4
+      What do you want to learn today?
 
-.fa.fa-flag
-.fab.fa-amazon
-= link_to root_path do
-  .fa.fa-home
+    .p-4
 
-= link_to courses_path, class: "btn btn-success" do
-  .fa.fa-book
-  Courses
+    .form-inline.my-2.my-lg-0
+      = form_tag(courses_path, method: :get) do
+        .input-group
+          = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
+          %span.input-group-append
+            %button.btn.btn-primary.btn-sm{:type => "submit"}
+              %span.fa.fa-search{"aria-hidden" => "true"}
+
+.card-group
+  .card.card-body
+    %h1
+      .fa.fa-graduation-cap
+    = Course.count
+    online courses
+    .row
+    Explore a variety of fresh courses
+  
+  .card.card-body
+    %h1
+      .fa.fa-chalkboard-teacher
+    = Course.distinct.count(:user_id)
+    expert intructors
+    .row
+    Find the right instructor for you
+  
+  .card.card-body
+    %h1
+      .fa.fa-user-graduate
+    = User.count
+    active learners
+    .row
+    Join the knowledge sharing community
+  
+  .card.card-body
+    %h1
+      .fa.fa-infinity
+    Lifetime access
+    .row
+    Learn on your schedule
+
+%h2
+  Popular courses
+.row.row-cols-1.row-cols-md-3.g-4
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+  
+  
+
+%hr
+%h2
+  Popular courses
+.row.row-cols-1.row-cols-md-3.g-4
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+%hr
+%h2
+  Top rated courses
+.row.row-cols-1.row-cols-md-3.g-4
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+%hr
+%h2
+  Latest courses
+.row.row-cols-1.row-cols-md-3.g-4
+  - @latest_courses.each do |course|
+    = render 'courses/course', course: course
+%hr
