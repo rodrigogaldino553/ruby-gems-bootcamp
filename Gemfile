@@ -63,6 +63,7 @@ gem 'simple_form'
 
 # database
 gem 'faker'
+gem 'friendly_id', '~> 5.2.4'
 
 # auth
 gem 'devise'
