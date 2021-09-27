@@ -14,8 +14,8 @@
     
     = favicon_link_tag asset_path("favicon.png")
   %body
-    = render 'layouts/header'
-    = render 'layouts/messages'
+    = render 'shared/header'
+    = render 'shared/messages'
     .container
       %p
       = yield
