@@ -1,4 +1,4 @@
-#User.create!(email: Faker::Internet.email, password: '12345678', password_confirmation: '12345678')
+User.create!(email: Faker::Internet.email, password: '12345678', password_confirmation: '12345678')
 
 30.times do
   Course.create!([{
