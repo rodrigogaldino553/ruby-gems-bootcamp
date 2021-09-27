@@ -64,6 +64,7 @@ gem 'simple_form'
 # database
 gem 'faker'
 gem 'friendly_id', '~> 5.2.4'
+gem 'ransack'
 
 # auth
 gem 'devise'
