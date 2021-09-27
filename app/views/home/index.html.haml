@@ -1,5 +1,5 @@
-.container-fluid.bg-dark.text-light.p-5
-  .container.bg-dark.p-5
+.container-fluid.bg-secondary.text-light.p-5
+  .container.bg-secondary.p-5
     .display-4
       What do you want to learn today?
 
@@ -50,17 +50,17 @@
   Popular courses
 .row.row-cols-1.row-cols-md-3.g-4
   - @courses.each do |course|
-    = render 'courses/course', course: course
+    = render 'shared/course', course: course
 %hr
 %h2
   Top rated courses
 .row.row-cols-1.row-cols-md-3.g-4
   - @courses.each do |course|
-    = render 'courses/course', course: course
+    = render 'shared/course', course: course
 %hr
 %h2
   Latest courses
 .row.row-cols-1.row-cols-md-3.g-4
   - @latest_courses.each do |course|
-    = render 'courses/course', course: course
+    = render 'shared/course', course: course
 %hr
