@@ -9,8 +9,8 @@
     = f.rich_text_area :description
     %small= f.error :description, class: "text-danger"
     = f.input :short_description
-    = f.input :language, collection: ["English", "Polish", "Portuguese", "Russian", "Spanish"]
-    = f.input :level, collection: ["Beginner", "Intermediated", "Advanced"]
+    = f.input :language, collection: Course.languages
+    = f.input :level, collection: Course.levels
     = f.input :price
 
   .form-actions
