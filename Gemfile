@@ -68,3 +68,5 @@ gem 'ransack'
 
 # auth
 gem 'devise'
+
+gem 'public_activity'
