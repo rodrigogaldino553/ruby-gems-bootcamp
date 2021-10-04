@@ -23,6 +23,12 @@
             .fa.fa-users
             Users
 
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
+          = link_to home_activity_path, class: 'nav-link' do
+            .fa.fa-bell
+            Activity
+
+      /SEARCH IN NAVBAR
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
         .input-group
           =f.search_field :title_or_short_description_cont, class: 'form-control-sm', style: 'float:left; width:150px;', placeholder: 'Find a course'
