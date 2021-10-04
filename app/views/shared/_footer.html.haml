@@ -1,0 +1,21 @@
+%hr
+%footer
+  .container
+    .row
+      .col-md-4
+        Copyright
+        &copy;
+        = Time.now.year
+        CoursePlatform Sp, z o.o.o
+        .row
+        .fa.fa-envelope
+        = mail_to 'galdinorodrigo553@gmail.com'
+        .row
+      .col-md-4
+        Privacy Policy
+        .row
+        Terms and conditions
+      .col-md-4
+        About us
+        .row
+        = link_to 'Teach on EDURGE', new_course_path
