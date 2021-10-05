@@ -69,5 +69,6 @@ gem 'ransack'
 # auth
 gem 'devise'
 gem 'rolify'
+gem 'pundit'
 
 gem 'public_activity'
