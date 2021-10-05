@@ -39,14 +39,6 @@
       /        %button.btn.btn-primary.btn-sm{:type => "submit"}
       /          %span.fa.fa-search{"aria-hidden" => "true"}
       %ul.navbar-nav.mr-right
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
-          = link_to home_activity_path, class: 'nav-link' do
-            .fa.fa-bell
-            Activity
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(root_path)}"}
-          = link_to root_path, class: 'nav-link' do
-            .fa.fa-home
-            Another link
         %li.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             %b= current_user.email
@@ -57,6 +49,10 @@
             = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
               .fa.fa-sign-out-alt
               %b Sign out
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
+          = link_to home_activity_path, class: 'nav-link' do
+            .fa.fa-bell
+            Activity
     - else
       %ul.navbar-nav
         %li.nav-item= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'

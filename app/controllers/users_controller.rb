@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: "User #{user.email} was succefully updated"
+      redirect_to users_path, notice: "User #{@user.email} was succefully updated"
     else
       render :edit
     end
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit({roles_ids: []})
+    params.require(:user).permit({role_ids: []})
   end
 end
