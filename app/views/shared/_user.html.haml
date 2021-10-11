@@ -2,9 +2,9 @@
   .card-header
     .fa.fa-user
     - if user.online?
-      .text-success.fa.fa-circle
+      .text-success.far.fa-circle
     - else
-      .text-danger.fa.fa-circle
+      .text-danger.far.fa-circle
     = link_to user.email, user_path(user)
   .card-footer
     Signed up

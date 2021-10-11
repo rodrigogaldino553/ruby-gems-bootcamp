@@ -3,6 +3,7 @@ class Course < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :user
+  has_many :lessons, dependent: :destroy
 
   def to_s
     title
