@@ -6,9 +6,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def edit?
-    return false unless user
-
-     @record.user_id == @user.id || @user.has_role?(:admin)
+    @record.user_id == @user.id || @user.has_role?(:admin)
   end
 
   def update?
