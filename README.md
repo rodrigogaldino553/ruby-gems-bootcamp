@@ -13,9 +13,7 @@ Things you may want to cover:
   <li>yarn</li>
 </ul>  
 
-* Ruby version
-
-* System dependencies
+<h3>System dependencies</h3>
 
 * Configuration
 
