@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Installation Requirements
+<h3>Installation Requirements</h3>
 <ul>
   <li>ruby v 2.7.1 +</li>
   <li>rails 6.0.3 +</li>
