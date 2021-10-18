@@ -1,6 +1,6 @@
-# README
+# Ruby Corsego
 
-This README would normally document whatever steps are necessary to get the
+Ruby on Rails 6: Used 25+ gems and build a Startup MVP 2020. Online learning platform (aka Udemy clone)
 application up and running.
 
 Things you may want to cover:
