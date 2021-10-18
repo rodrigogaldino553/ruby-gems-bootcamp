@@ -40,3 +40,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<h3>Entity-Relationship Diagram</h3>
+<p><a href="https://corsego.herokuapp.com" rel="nofollow"><img src="https://camo.githubusercontent.com/6525d81965a204a677cd1797ad1d3120ffa1c12f234d938bf6746197607f7ee8/68747470733a2f2f692e696d6775722e636f6d2f494957575978572e706e67" alt="N|Solid" data-canonical-src="https://i.imgur.com/IIWWYxW.png" style="max-width: 100%;"></a></p>  
