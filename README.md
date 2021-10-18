@@ -5,11 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-*Installation Requirements
-  ruby v 2.7.1 +
-  rails 6.0.3 +
-  postgresql database
-  yarn
+* Installation Requirements
+<ul>
+  <li>ruby v 2.7.1 +</li>
+  <li>rails 6.0.3 +</li>
+  <li>postgresql database</li>
+  <li>yarn</li>
+</ul>  
 
 * Ruby version
 
