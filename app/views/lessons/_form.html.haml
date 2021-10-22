@@ -7,8 +7,11 @@
     = f.input :title
     = f.label :content
     = f.rich_text_area :content
+    %small= f.error :content, class: 'text-danger'
     /= f.association :course
     /= f.input :course_id, input_html: { value: @lesson.course_id || params[:course_id]}, as: :hidden
+  
+    %p
 
   .form-actions
     = f.button :submit
