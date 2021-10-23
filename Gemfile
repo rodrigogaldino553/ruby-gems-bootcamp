@@ -59,16 +59,27 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # style
 gem 'haml-rails', '~> 2.0'
+# its a generator html/erb to haml
 gem 'simple_form'
+# easy to build flexibles forms components 
 
 # database
 gem 'faker'
+# it helps to fill database with fake data based on quotes from many places like series, movies...
 gem 'friendly_id', '~> 5.2.4'
+# it make entity access url friendly to users like "app.com/47146547" its converted to "app.com/usernamefulano"
 gem 'ransack'
+# used to build advanceds and simple searchs forms
 
 # auth
 gem 'devise'
+# it work all registration, login, auth and more in the application
 gem 'rolify'
+# it's responsible to roles, that roles used by users(admin, teacher...) 
 gem 'pundit'
+# it's an authorization gem, it makes similar to can can can
 
 gem 'public_activity'
+# tracks users activity (we can say that notifications systems like that in instagram heart symbol works like this gem)
+gem 'exception_notification'
+# it catch application errors when users discover them and send me(app owner) a email with details about the error
