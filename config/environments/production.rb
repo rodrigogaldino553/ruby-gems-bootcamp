@@ -19,7 +19,7 @@ Rails.application.configure do
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     email_prefix: '[PREFIX] ',
-    sender_address: %{"corsego error" <support@ruby-corsego.herokuapp.com>}, #maybe this email dont work, so try to switch to a valid email like "galdinorodrigo553@gmail.com" like the other 
+    sender_address: %{"corsego error" <galdinorodrigo553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "galdinorodrigo553@gmail.com" like the other 
     exception_recipients: %w{galdinorodrigo553@gmail.com}
   }
   
