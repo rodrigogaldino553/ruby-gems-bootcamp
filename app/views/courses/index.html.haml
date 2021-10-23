@@ -29,4 +29,6 @@
     .row.row-cols-1.row-cols-md-3.g-4
       - @courses.each do |course|
         = render 'courses/course', course: course
+    /!=pagy_nav(@pagy)
+    !=pagy_bootstrap_nav(@pagy)
 %br

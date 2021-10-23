@@ -61,7 +61,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'haml-rails', '~> 2.0'
 # its a generator html/erb to haml
 gem 'simple_form'
-# easy to build flexibles forms components 
+# easy to build flexibles forms components
+gem 'pagy'
+# make the pagination managment, like the nav pages in course index, and managing the items that are showed
 
 # database
 gem 'faker'
