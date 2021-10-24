@@ -7,7 +7,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-     secretdata  
+    port: 587,
+    address: 'email-smtp.us-east-2.amazonaws.com',
+    user_name: 'AKIAYGEFMPPFT4V257KW',
+    password: 'BDNYE95C6p0qnjNxLTTyUDmrKF66RKYPgepomwazP89t',
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
