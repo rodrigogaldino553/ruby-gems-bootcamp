@@ -61,7 +61,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'haml-rails', '~> 2.0'
 # its a generator html/erb to haml
 gem 'simple_form'
-# easy to build flexibles forms components 
+# easy to build flexibles forms components
+gem 'pagy'
+# make the pagination managment, like the nav pages in course index, and managing the items that are showed
 
 # database
 gem 'faker'
@@ -79,6 +81,7 @@ gem 'rolify'
 gem 'pundit'
 # it's an authorization gem, it makes similar to can can can
 
+# general_tools
 gem 'public_activity'
 # tracks users activity (we can say that notifications systems like that in instagram heart symbol works like this gem)
 gem 'exception_notification'
