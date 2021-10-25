@@ -81,6 +81,7 @@ gem 'rolify'
 gem 'pundit'
 # it's an authorization gem, it makes similar to can can can
 
+# general_tools
 gem 'public_activity'
 # tracks users activity (we can say that notifications systems like that in instagram heart symbol works like this gem)
 gem 'exception_notification'
