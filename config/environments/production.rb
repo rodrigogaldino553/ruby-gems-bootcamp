@@ -9,8 +9,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     port: 587,
     address: 'email-smtp.us-east-2.amazonaws.com',
-    user_name: 'AKIAYGEFMPPFT4V257KW',
-    password: 'BDNYE95C6p0qnjNxLTTyUDmrKF66RKYPgepomwazP89t',
+    user_name: ENV['AWS_USER_NAME'],
+    password: ENV['AWS_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
   }
@@ -19,8 +19,8 @@ Rails.application.configure do
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     email_prefix: '[PREFIX] ',
-    sender_address: %{"corsego error" <galdinorodrigo553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "galdinorodrigo553@gmail.com" like the other 
-    exception_recipients: %w{galdinorodrigo553@gmail.com}
+    sender_address: %{"corsego error" <englishgaldino553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "englishgaldino553@gmail.com" like the other 
+    exception_recipients: %w{englishgaldino553@gmail.com}
   }
   
   # Settings specified here will take precedence over those in config/application.rb.
