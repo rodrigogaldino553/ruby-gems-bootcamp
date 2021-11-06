@@ -1,29 +1,39 @@
-%h1 Listing enrollments
+= content_for :title do
+  Corsego
+  \|
+  All Enrollments
 
-%table
-  %thead
-    %tr
-      %th Course
-      %th User
-      %th Rating
-      %th Review
-      %th Price
-      %th
-      %th
-      %th
+%h3
+  .text-center
+    Enrollments
+    .badge.bg-info
+      = @enrollments.count
 
-  %tbody
-    - @enrollments.each do |enrollment|
+.table-responsive
+  %table.table.table-bordered.table-striped.table-sm
+    %thead
       %tr
-        %td= enrollment.course
-        %td= enrollment.user
-        %td= enrollment.rating
-        %td= enrollment.review
-        %td= enrollment.price
-        %td= link_to 'Show', enrollment
-        %td= link_to 'Edit', edit_enrollment_path(enrollment)
-        %td= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Course
+        %th User
+        %th Rating
+        %th Review
+        %th Price
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @enrollments.each do |enrollment|
+        %tr
+          %td= enrollment.course
+          %td= enrollment.user
+          %td= enrollment.rating
+          %td= enrollment.review
+          %td= number_to_currency(enrollment.price) 
+          %td= link_to 'Show', enrollment
+          %td= link_to 'Edit', edit_enrollment_path(enrollment)
+          %td= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Enrollment', new_enrollment_path
+  %br
+
+  = link_to 'New Enrollment', new_enrollment_path
