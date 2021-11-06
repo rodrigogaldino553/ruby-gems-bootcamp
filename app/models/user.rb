@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   rolify
 
+  has_many :courses
+  has_many :enrollments
+  
   def to_s
     email
   end
@@ -15,7 +18,6 @@ class User < ApplicationRecord
     self.email.split(/@/).first
   end
 
-  has_many :courses
 
   extend FriendlyId
   friendly_id :email, use: :slugged

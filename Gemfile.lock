@@ -85,6 +85,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
     erubi (1.10.0)
     erubis (2.7.0)
     exception_notification (4.4.3)
@@ -259,6 +260,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  dotenv (~> 2.1, >= 2.1.1)
   exception_notification
   faker
   friendly_id (~> 5.2.4)

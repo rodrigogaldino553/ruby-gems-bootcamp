@@ -2,8 +2,27 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', :protocol => 'http' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'email-smtp.us-east-2.amazonaws.com',
+    user_name: ENV['AWS_USER_NAME'],
+    password: ENV['AWS_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  email: {
+    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    email_prefix: '[PREFIX] ',
+    sender_address: %{"corsego error" <englishgaldino553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "englishgaldino553@gmail.com" like the other 
+    exception_recipients: %w{englishgaldino553@gmail.com}
+  }
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
