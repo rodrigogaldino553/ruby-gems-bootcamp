@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     @q = User.ransack(params[:q])
     @users = @q.result(dinstinct: true)
+    authorize @users
   end
 
   def show
