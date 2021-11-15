@@ -23,11 +23,10 @@
             .fa.fa-users
             Users
 
-        / i dont reach fix it, so I will wait till he shows this part on course again
-        / %li . broke motherfucker nav-item{class: tinha uns coisa aqui active font-weight-bold' ibroke motherfuckerf current_pagebroke motherfucker?(enrollments_path)}"}
-        /  = link_to enrollments_path, class: 'nav-link' do
-        /    .fa.fa-lock-open
-        /    Enrollments
+        %li{:class => "nav-item #{'active font-weight-bold' if current_page?(enrollments_path)}"}
+          = link_to enrollments_path, class: "nav-link" do
+            %i.fa.fa-lock-open{"aria-hidden" => "true"}
+            Enrollments
 
       /SEARCH IN NAVBAR
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
