@@ -13,8 +13,18 @@
   %table.table.table-bordered.table-striped.table-sm
     %thead
       %tr
-        %th Course
-        %th User
+        %th ID
+        %th
+        minuto 2:55
+          .fa.fa-clock 
+          .fa.fa-lock-open
+          Bought
+        %th 
+          .fa.graduation-cap
+          Course
+        %th 
+          .fa.fa-user
+          User
         %th Rating
         %th Review
         %th Price
@@ -25,8 +35,10 @@
     %tbody
       - @enrollments.each do |enrollment|
         %tr
-          %td= enrollment.course
-          %td= enrollment.user
+          %td= enrollment.id
+          %td= enrollment.created_at.strftime("%d/%b/%Y - %H:%M")
+          %td= link_to enrollment.course, course_path(enrollment.course)
+          %td= link_to enrollment.user, user_path(enrollment.user)
           %td= enrollment.rating
           %td= enrollment.review
           %td= number_to_currency(enrollment.price) 
