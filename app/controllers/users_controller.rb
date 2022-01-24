@@ -2,10 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    @users = User.all
+    #@users = User.all
 
     @q = User.ransack(params[:q])
     @pagy, @users = pagy(@q.result(dinstinct: true))
+    
     authorize @users
   end
 
