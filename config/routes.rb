@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :enrollments
+  resources :enrollments do
+    get :my_students, on: :collection
+  end
 
   resources :courses do
+    get :purchased, :pending_review, :created, on: :collection
     resources :lessons
     resources :enrollments, only: [:new, :create]
   end
