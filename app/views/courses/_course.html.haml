@@ -13,11 +13,15 @@
     .text-warning.fa.fa-star
     %b= course.average_rating
 
-    counter cache Enrollments count:
-    = course.enrollments_count 
+    /counter cache Enrollments count:
+    /= course.enrollments_count
+    (
+    .fa.fa-user-graduate
+    = course.enrollments_count
+    )
   .card-footer
     .fa.fa-tasks
-    = course.lessons.count
+    = course.lessons_count
   .card-footer
     .row
       .col-md-6
