@@ -11,7 +11,10 @@
       = review_button(course)
   .card-footer
     .text-warning.fa.fa-star
-    = course.average_rating
+    %b= course.average_rating
+
+    counter cache Enrollments count:
+    = course.enrollments_count 
   .card-footer
     .fa.fa-tasks
     = course.lessons.count
