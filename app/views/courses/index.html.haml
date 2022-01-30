@@ -1,9 +1,11 @@
 = content_for :title do
-  Corsego
-  All courses
+  Corsego 
+  = action_name.humanize
+  courses
 
 %h3
   .text-center
+    = action_name.humanize
     Courses
     .badge.bg-info
       = @courses.count
