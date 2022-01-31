@@ -3,7 +3,11 @@ class HomeController < ApplicationController
 
   def index
     @courses = Course.all.limit(3)
-    @latest_courses = Course.all.limit(3).order(created_at: :desc)
+    @latest_good_reviews = Enrollment.reviewed.latest_good_reviews
+    @latest = Course.latest
+    @top_rated = Course.top_rated
+    @popular = Course.popular
+    @purchased_courses = Course.joins(:enrollments).where(enrollments: { user: current_user }).order(created_at: :desc).limit(3)
   end
 
   def activity
