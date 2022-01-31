@@ -69,21 +69,21 @@
   .fa.fa-chart-line
   Popular courses
 .row.row-cols-1.row-cols-md-3.g-4
-  - @popular_courses.each do |course|
+  - @popular.each do |course|
     = render 'courses/course', course: course
 %hr
 %h2
   .fa.fa-star
   Top rated courses
 .row.row-cols-1.row-cols-md-3.g-4
-  - @top_rated_courses.each do |course|
+  - @top_rated.each do |course|
     = render 'courses/course', course: course
 %hr
 %h2
   .fa.fa-clock
   Latest courses
 .row.row-cols-1.row-cols-md-3.g-4
-  - @latest_courses.each do |course|
+  - @latest.each do |course|
     = render 'courses/course', course: course
 %hr
 %h2
