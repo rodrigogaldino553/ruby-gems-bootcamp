@@ -41,6 +41,7 @@ class CoursesController < ApplicationController
   # GET /courses/1 or /courses/1.json
   def show
     @lessons = @course.lessons
+    @enrollments_with_review = @course.enrollments.reviewed
   end
 
   # GET /courses/new
