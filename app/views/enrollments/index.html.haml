@@ -28,14 +28,14 @@
       %tr
         %th ID
         %th
-          = sort_link(@q, :user_email)
+          = sort_link(@q, :user_email, "User")
         %th
           = sort_link(@q, :created_at)
           /.fa.fa-clock 
           /.fa.fa-lock-open
           /Bought
         %th
-          = sort_link(@q, :course_title)
+          = sort_link(@q, :course_title, "Course")
           /.fa.graduation-cap
           /Course
         %th
@@ -52,6 +52,7 @@
         %th 
           .text-warning.fa.fa-comment
           Review
+        %th Progress
         %th
         %th
         %th
@@ -60,6 +61,7 @@
       - @enrollments.each do |enrollment|
         %tr
           %td= enrollment.id
+          %td= link_to enrollment.user.email, user_path(enrollment.user)
           %td= enrollment.created_at.strftime("%d/%b/%Y - %H:%M")
           %td= link_to enrollment.course, course_path(enrollment.course)
           %td= number_to_currency(enrollment.price)
@@ -68,9 +70,14 @@
               = enrollment.updated_at.strftime("%d/%b/%Y - %H:%M")
           %td= enrollment.rating
           %td= enrollment.review 
+          %td= number_to_percentage(enrollment.course.progress(enrollment.user), precision: 0)
           %td= link_to 'See Review', enrollment
-          %td= link_to 'Add Review', edit_enrollment_path(enrollment)
-          %td= link_to 'Delete Enrollment', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
+          %td
+            - if policy(enrollment).edit?
+              = link_to 'Add Review', edit_enrollment_path(enrollment)
+          %td
+            - if policy(enrollment).destroy?
+              = link_to 'Delete Enrollment', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
 
   != pagy_bootstrap_nav(@pagy)
   %br
