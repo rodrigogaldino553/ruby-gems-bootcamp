@@ -16,13 +16,13 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  email: {
-    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-    email_prefix: '[PREFIX] ',
-    sender_address: %{"corsego error" <englishgaldino553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "englishgaldino553@gmail.com" like the other 
-    exception_recipients: %w{englishgaldino553@gmail.com}
-  }
+  #Rails.application.config.middleware.use ExceptionNotification::Rack,
+  #email: {
+  #  deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+  #  email_prefix: '[PREFIX] ',
+  #  sender_address: %{"corsego error" <englishgaldino553@gmail.com>}, #maybe this email dont work, so try to switch to a valid email like "englishgaldino553@gmail.com" like the other 
+  #  exception_recipients: %w{englishgaldino553@gmail.com}
+  #}
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

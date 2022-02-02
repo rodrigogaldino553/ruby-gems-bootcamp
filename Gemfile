@@ -88,3 +88,7 @@ gem 'public_activity'
 # tracks users activity (we can say that notifications systems like that in instagram heart symbol works like this gem)
 gem 'exception_notification'
 # it catch application errors when users discover them and send me(app owner) a email with details about the error
+
+gem "chartkick", "~> 4.1"
+
+gem "groupdate", "~> 6.0"
