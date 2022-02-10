@@ -6,11 +6,11 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def show?
-    @user.has_role?(:admin) || @record.course.user_id == @user.id || @record.course.bought(@user) == false
+    @user.has_role?(:admin) || @record.course.user_id == @user.id || @record.course.bought(@user) == true
   end
 
   def edit?
-    @record.course.user_id == @user.id
+    @user.present? && @record.course.user_id == @user.id
   end
 
   def update?
