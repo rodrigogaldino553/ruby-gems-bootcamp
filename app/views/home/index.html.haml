@@ -57,20 +57,27 @@
     .row
     Learn on your schedule
 
-%hr
-%h2
-  .fa.fa-user-graduate
-  Continue Learning
-.row.row-cols-1.row-cols-md-3.g-4
-  - @purchased_courses.each do |course|
-    = render 'courses/course', course: course
-%hr
+%p
+
+- if current_user
+  %h2
+    .fa.fa-user-graduate
+    Continue Learning
+  .row.row-cols-1.row-cols-md-3.g-4
+    - @purchased_courses.each do |course|
+      = render 'courses/course', course: course
+  .text-end
+    = link_to 'All my purchased courses', purchased_courses_path
+  %hr
+
 %h2
   .fa.fa-chart-line
   Popular courses
 .row.row-cols-1.row-cols-md-3.g-4
   - @popular.each do |course|
     = render 'courses/course', course: course
+.text-end
+  = link_to 'More popular courses', courses_path(courses_search: {s: 'enrollments_cout desc'})
 %hr
 %h2
   .fa.fa-star
@@ -78,6 +85,8 @@
 .row.row-cols-1.row-cols-md-3.g-4
   - @top_rated.each do |course|
     = render 'courses/course', course: course
+.text-end
+  = link_to 'Best rated courses', courses_path(courses_search: {s: 'average_rating desc'})
 %hr
 %h2
   .fa.fa-clock
@@ -85,6 +94,8 @@
 .row.row-cols-1.row-cols-md-3.g-4
   - @latest.each do |course|
     = render 'courses/course', course: course
+.text-end
+  = link_to 'More new courses', courses_path(courses_search: {s: 'created_at desc'})
 %hr
 %h2
   .fa.fa-comment
