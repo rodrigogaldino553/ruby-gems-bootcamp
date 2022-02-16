@@ -1,8 +1,20 @@
-- if lesson.viewed(current_user) == true
-  .text-success.far.fa-check-square
+- if current_user
+  - if lesson.course.bought(current_user) || @course.user == current_user
+    - if lesson.viewed(current_user) == true
+      .text-success.far.fa-check-square
+    - else
+      .text-danger.far.fa-check-square
+  - else
+    .fa.fa-check-square
+  = link_to course_lesson_path(@course, lesson) do
+    = lesson.row_order_rank + 1
+    = lesson.title
 - else
-  .text-danger.far.fa-check-square
-= link_to lesson.title, course_lesson_path(@course, lesson)
+  .fa.fa-check-square
+  = link_to course_lesson_path(@course, lesson) do
+    = lesson.row_order_rank + 1
+    = lesson.title
+
 .float-end
   - if policy(lesson).edit?
     = link_to 'edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
