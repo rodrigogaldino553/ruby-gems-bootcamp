@@ -93,3 +93,4 @@ gem 'exception_notification'
 gem "chartkick", "~> 4.1"
 
 gem "groupdate", "~> 6.0"
+gem "ranked-model"
