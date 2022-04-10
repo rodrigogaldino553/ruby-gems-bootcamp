@@ -94,3 +94,4 @@ gem "chartkick", "~> 4.1"
 
 gem "groupdate", "~> 6.0"
 gem "ranked-model"
+gem "aws-sdk-s3", require: false
