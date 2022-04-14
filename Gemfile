@@ -97,3 +97,5 @@ gem "ranked-model"
 gem "aws-sdk-s3", require: false
 
 gem "active_storage_validations", "~> 0.9.7"
+
+gem "image_processing", "~> 1.12"
