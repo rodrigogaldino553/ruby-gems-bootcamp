@@ -23,6 +23,8 @@ require("@rails/actiontext")
 
 import "chartkick/chart.js"
 
+import '../trix-editor-overrides'
+
 require("jquery")
 require("jquery-ui-dist/jquery-ui")
 
