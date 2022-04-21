@@ -10,7 +10,11 @@
     %small= f.error :content, class: 'text-danger'
     /= f.association :course
     /= f.input :course_id, input_html: { value: @lesson.course_id || params[:course_id]}, as: :hidden
+    - if @lesson.video.attached?
+      = @lesson.video.filename
     = f.input :video
+    - if @lesson.video_thumbnail.attached?
+      = @lesson.video_thumbnail.filename
     = f.input :video_thumbnail
     %p
 
