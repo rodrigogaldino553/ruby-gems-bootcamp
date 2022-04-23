@@ -12,6 +12,8 @@
     /= f.input :course_id, input_html: { value: @lesson.course_id || params[:course_id]}, as: :hidden
     - if @lesson.video.attached?
       = @lesson.video.filename
+      = link_to 'Remove video', delete_video_course_lesson_path(@course, @lesson), method: :delete, data: { confirm: 'Are you sure?' }
+    
     = f.input :video
     - if @lesson.video_thumbnail.attached?
       = @lesson.video_thumbnail.filename
