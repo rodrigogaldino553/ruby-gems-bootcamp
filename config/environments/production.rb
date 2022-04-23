@@ -1,17 +1,18 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { :host => 'rails-corsego.herokuapp.com', :protocol => 'https' }
+  config.action_mailer.default_url_options = { :host => 'https://ruby-corsego.herokuapp.com', :protocol => 'https' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    port: 587,
-    address: 'email-smtp.us-east-2.amazonaws.com',
-    user_name: ENV['AWS_USER_NAME'],
-    password: ENV['AWS_PASSWORD'],
-    authentication: :plain,
+    address: "smtp.gmail.com",
+    port: "587",
+    domain: "ruby-corsego.herokuapp.com",
+    user_name: ENV["EMAIL"],
+    password: ENV["MAIL_PASSWORD"],
+    authentication: "plain",
     enable_starttls_auto: true
   }
 
