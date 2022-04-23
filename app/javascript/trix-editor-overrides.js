@@ -1,8 +1,8 @@
 // Blacklist all file attachments
-window.addEventListener('trix-file-accept', (event) => {
+/*window.addEventListener('trix-file-accept', (event) => {
   event.preventDefault()
   alert('File attachments not supported!')
-})
+})*/
 
 // only images
 
