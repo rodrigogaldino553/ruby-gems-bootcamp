@@ -21,9 +21,10 @@
     /= f.file_field :avatar
     / %small= f.error :avatar, class: "text-danger"
     .row 
-    = f.label :description
-    = f.rich_text_area :description
-    %small= f.error :description, class: "text-danger"
+    / = f.label :description
+    / = f.rich_text_area :description
+    / %small= f.error :description, class: "text-danger"
+    = f.input :description, as: :rich_text_area
     = f.input :short_description
     = f.input :language, collection: Course.languages
     = f.input :level, collection: Course.levels
