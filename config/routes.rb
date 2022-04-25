@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:new, :create]
   end
   
+  resources :youtube, only: :show
+
   resources :users, only: [:index, :edit, :show, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "activity", to: 'home#activity'
