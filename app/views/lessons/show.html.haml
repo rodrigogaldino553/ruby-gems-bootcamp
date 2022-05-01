@@ -36,3 +36,12 @@
             = render 'lessons/lesson_preview', lesson: lesson
 
 = link_to 'Back to course', course_path(@lesson.course)
+
+All Comments:
+= @comments.count
+- @comments.each do |comment|
+  = render 'lessons/comments/comment', comment: comment
+  %p
+%hr
+New Comment
+= render 'lessons/comments/form'
