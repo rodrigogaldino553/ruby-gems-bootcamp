@@ -18,6 +18,21 @@
   .col-lg-8
     = render 'lessons/lesson', lesson: @lesson
     %p
+    %h4
+      .fa.fa-comment
+      Comments:
+      = @comments.count 
+    .card
+      .card-body
+        New Comment
+      .card-body
+        = render 'lessons/comments/form'
+    %p
+    - @comments.each do |comment|
+      = render 'lessons/comments/comment', comment: comment
+      %p
+
+
   .col-lg-4
     %ul.list-group
       %li.list-group-item
@@ -34,14 +49,3 @@
         - else
           %li.list-group-item
             = render 'lessons/lesson_preview', lesson: lesson
-
-= link_to 'Back to course', course_path(@lesson.course)
-
-All Comments:
-= @comments.count
-- @comments.each do |comment|
-  = render 'lessons/comments/comment', comment: comment
-  %p
-%hr
-New Comment
-= render 'lessons/comments/form'
