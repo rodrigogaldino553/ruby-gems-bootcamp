@@ -145,6 +145,7 @@ GEM
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     jmespath (1.6.1)
+    json (2.6.2)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
@@ -228,6 +229,8 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    recaptcha (5.10.0)
+      json
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -329,6 +332,7 @@ DEPENDENCIES
   rails-erd
   ranked-model
   ransack
+  recaptcha (~> 5.10)
   rolify
   sass-rails (>= 6)
   selenium-webdriver
