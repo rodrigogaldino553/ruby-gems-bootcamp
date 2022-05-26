@@ -17,9 +17,6 @@
         / no curso, esssa parte tem outro if/else pra video tem thumb/nao tem, mas aqui no poster eu consegui fazer mais clean com esse ternario que ja resolve a coisa
         %source{src: rails_blob_url(@lesson.video), type:"#{@lesson.video.content_type}"}
     
-      / video.js way
-      / = content_tag :video, id: 'my-video' do
-      /   = tag :source, src: url_for(@lesson.video), type: @lesson.video.content_type 
     = lesson.content
   - if policy(lesson).edit?
     .card-footer
