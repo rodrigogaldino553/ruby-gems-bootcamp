@@ -3,19 +3,28 @@
   .container.text-white
     .row
       .col-md-4
+        = link_to 'Teach on Corsego', new_course_path
+        .row
+        Cosego for business
+        .row
+        About us
+      .col-md-4
+        = link_to 'Privacy policy', privacy_policy_path
+        .row
+        Terms & conditions
+        .row
+        Careers
+        .row
+        Help & support
+        .row
+        Blog
+      .col-md-4
         Copyright
         &copy;
         = Time.now.year
-        CoursePlatform Sp, z o.o.o
+        CoursePlatform Sp, z o.o.
         .row
         .fa.fa-envelope
-        = mail_to 'englishgaldino553@gmail.com'
+        = mail_to 'railsmails553@gmail.com'
         .row
-      .col-md-4
-        Privacy Policy
-        .row
-        Terms and conditions
-      .col-md-4
-        About us
-        .row
-        = link_to 'Teach on EDURGE', new_course_path
+%br
