@@ -52,4 +52,8 @@ $(document).on('turbolinks:load', () => {
     }
   })
 
+  $("video").bind("contextmenu", () => {
+    return false
+  })
+
 })
