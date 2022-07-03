@@ -103,4 +103,6 @@ gem "image_processing", "~> 1.12"
 
 gem "recaptcha", "~> 5.10"
 
-gem "omniauth-google-oauth2", "~> 1.0"
+gem "omniauth-google-oauth2"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
