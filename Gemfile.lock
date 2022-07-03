@@ -109,6 +109,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    digest (3.1.0)
     dotenv (2.7.6)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -175,6 +176,12 @@ GEM
     msgpack (1.5.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
+    net-protocol (0.1.3)
+      timeout
+    net-smtp (0.3.1)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
@@ -311,6 +318,7 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
+    timeout (0.3.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -361,6 +369,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.3)
+  net-smtp (~> 0.3.1)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection (~> 1.0)
   pagy
@@ -386,7 +395,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.1.2p64
 
 BUNDLED WITH
    2.2.23

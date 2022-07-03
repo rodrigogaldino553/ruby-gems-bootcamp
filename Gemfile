@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -106,3 +106,5 @@ gem "recaptcha", "~> 5.10"
 gem "omniauth-google-oauth2"
 
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem "net-smtp", "~> 0.3.1"
