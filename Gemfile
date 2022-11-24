@@ -108,3 +108,5 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "net-smtp", "~> 0.3.1"
+
+gem "omniauth-github", "~> 2.0"
