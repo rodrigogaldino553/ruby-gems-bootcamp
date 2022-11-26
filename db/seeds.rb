@@ -1,5 +1,4 @@
-User.create!(email: 'galdinorodrigo553@gmail.com', password: '12345678', password_confirmation: '12345678')
-User.create!(email: 'galdinorodrigo553@gmail.com', password: '12345678', password_confirmation: '12345678')
+#User.create!(email: 'galdinorodrigo553@gmail.com', password: '12345678', password_confirmation: '12345678')
 PublicActivity.enabled = false
 30.times do
   Course.create!([{
