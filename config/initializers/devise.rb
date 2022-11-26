@@ -273,7 +273,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :github, "#{Rails.application.credentials[Rails.env.to_sym][:github][:client]}", "#{Rails.application.credentials[Rails.env.to_sym][:github][:secret]}", scope: 'user,public_repo' # obs: create a new github app when in production
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google_oauth, :app_id), Rails.application.credentials.dig(:google_oauth, :app_secret), {}
-  OmniAuth.config.allowed_request_methods = %i[post]
+  OmniAuth.config.allowed_request_methods = %i[get]
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
