@@ -25,6 +25,8 @@ import "chartkick/chart.js"
 
 import '../trix-editor-overrides'
 
+require('selectize')
+
 require("jquery")
 require("jquery-ui-dist/jquery-ui")
 
@@ -55,5 +57,11 @@ $(document).on('turbolinks:load', () => {
   $("video").bind("contextmenu", () => {
     return false
   })
+
+  if($('.selectize')){
+    $('.selectize').selectize({
+      sortField: 'text'
+    })
+  }
 
 })

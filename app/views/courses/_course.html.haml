@@ -79,3 +79,7 @@
         - else
 
           = link_to 'Approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-success'
+  .card-footer
+    - course.tags.each do |tag|
+      .badge.bg-info
+        = tag.name
