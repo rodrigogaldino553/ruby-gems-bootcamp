@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_093217) do
+ActiveRecord::Schema.define(version: 2022_12_08_231336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2022_07_06_093217) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "course_tags", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_course_tags_on_course_id"
+    t.index ["tag_id"], name: "index_course_tags_on_tag_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -151,6 +160,11 @@ ActiveRecord::Schema.define(version: 2022_07_06_093217) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "course_tags_count", default: 0, null: false
+  end
+
   create_table "user_lessons", force: :cascade do |t|
     t.bigint "lesson_id", null: false
     t.bigint "user_id", null: false
@@ -209,6 +223,8 @@ ActiveRecord::Schema.define(version: 2022_07_06_093217) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "lessons"
   add_foreign_key "comments", "users"
+  add_foreign_key "course_tags", "courses"
+  add_foreign_key "course_tags", "tags"
   add_foreign_key "courses", "users"
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "users"
