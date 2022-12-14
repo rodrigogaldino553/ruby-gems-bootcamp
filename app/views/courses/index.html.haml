@@ -18,6 +18,8 @@
       = search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f|
         = f.label :title
         = f.search_field :title_cont, placeholder: "Title", class: 'form-control form-control-sm'
+        = f.label :tag
+        = f.search_field :course_tags_tag_name_cont, placeholder: "Tag name", class: 'form-control form-control-sm'
         = f.label :description
         = f.search_field :short_description_cont, placeholder: "Description", class: 'form-control form-control-sm'
         = f.label :lang
@@ -39,6 +41,13 @@
         .row
         = f.submit
       = link_to 'refresh', @ransack_path
+
+      .row
+      - @tags.order(course_tags_count: :desc).each do |tag|
+        = link_to courses_path(courses_search: {course_tags_tag_id_eq: tag.id}) do
+          .badge.bg-info
+            = tag.name
+            = tag.course_tags_count
 
   .col-md-10
     .row.row-cols-1.row-cols-md-3.g-4
