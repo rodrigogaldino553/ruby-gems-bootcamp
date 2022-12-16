@@ -64,4 +64,14 @@ $(document).on('turbolinks:load', () => {
     })
   }
 
+  $(".selectize-tags").selectize({
+    create: (input, callback) => {
+      $.post('/tags.json', { tag: { name: input } })
+      .done((response) => {
+        console.log(response)
+        callback({value: response.id, text: response.name})
+      })
+    }
+  })
+
 })
