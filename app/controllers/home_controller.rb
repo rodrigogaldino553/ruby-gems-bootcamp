@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @top_rated = Course.top_rated.published.approved
     @popular = Course.popular.published.approved
     @purchased_courses = Course.joins(:enrollments).where(enrollments: { user: current_user }).order(created_at: :desc).limit(3)
+    @popular_tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc).limit(10)
   end
 
   def activity

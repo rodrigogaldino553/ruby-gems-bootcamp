@@ -1,0 +1,7 @@
+Tags
+
+- @tags.each do |tag|
+  .row
+  = tag.name
+  = tag.course_tags_count
+  = link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' }

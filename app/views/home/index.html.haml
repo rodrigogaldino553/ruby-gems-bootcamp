@@ -96,6 +96,19 @@
     = render 'courses/course', course: course
 .text-end
   = link_to 'More new courses', courses_path(courses_search: {s: 'created_at desc'})
+
+%hr
+%h2
+  .fa.fa-tags
+  Most popular tags
+  .row
+  - @popular_tags.each do |tag|
+    = link_to courses_path(courses_search: {course_tags_tag_id_eq: tag.id}) do
+      .badge.bg-info
+        %h4
+          = tag.name
+          = tag.course_tags_count
+
 %hr
 %h2
   .fa.fa-comment
