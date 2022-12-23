@@ -59,3 +59,15 @@
     .sticky-top
       = render 'courses/course', course: @course
     %p
+
+%h4 Similar Courses
+
+
+.row
+All course tags
+- Course.all.where.not(id: @course.id).each do |course|
+  .row
+  - unless @course.tags.pluck(:id).intersection(course.tags.pluck(:id)).count.zero?
+    .col-md-10
+      .row.row-cols-1.row-cols-md-3.g-4
+        = render 'courses/course', course: course
