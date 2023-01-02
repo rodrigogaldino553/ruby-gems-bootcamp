@@ -110,3 +110,8 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "net-smtp", "~> 0.3.1"
 
 gem "omniauth-github", "~> 2.0"
+
+gem 'wkhtmltopdf-binary', group: :development
+gem 'wkhtmltopdf-heroku', group: :production
+
+gem "wicked_pdf", "~> 2.6"
