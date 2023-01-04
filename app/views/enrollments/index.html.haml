@@ -53,6 +53,7 @@
           .text-warning.fa.fa-comment
           Review
         %th Progress
+        %th Certificate
         %th
         %th
         %th
@@ -71,6 +72,7 @@
           %td= enrollment.rating
           %td= enrollment.review 
           %td= number_to_percentage(enrollment.course.progress(enrollment.user), precision: 0)
+          %td= link_to 'Cerificate', certificate_enrollment_path(enrollment, format: :pdf)
           %td= link_to 'See Review', enrollment
           %td
             - if policy(enrollment).edit?
