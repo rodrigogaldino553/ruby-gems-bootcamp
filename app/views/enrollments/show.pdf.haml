@@ -1,29 +1,50 @@
 %center
-  %h1
-    Certificate of Completion
-%p
-%center
-  This is to cdertify that the owner of the email address
-  %b
-    = @enrollment.user.email
-  has %successfully completed the course
-  %b
-    = @enrollment.course.title
-  on the Corsego.com platform
+  %div{:style => "width: 1200px; height: 800px; padding: 20px; text-align: center; border: 10px solid #563d7c;" }
+    %div{:style => "width: 1150px; height: 750px; padding: 20px; text-align: center; border: 5px solid #563d7c;" }
+      %br
+      %br
+      %br
+      %br
+      %span{:style => "font-size: 50px; font-weight: bold;"} Certificate of Completion
 
-%p
+      %br
+      %br
+      %br
+      %br
 
-%b Certificate id:
-#{@enrollment.slug}
+      %p
+      %h3
+        This is to cdertify that the owner of the email address
+        %b
+          = @enrollment.user.email
+        has successfully completed the course
+        %b
+          = @enrollment.course.title
+        on the Corsego.com platform
 
-%p
+      %p
 
-%b Certificate url:
-#{request.base_url}#{request.original_fullpath}
+      %br
+      %br
+      %br
+      %br
+      %br
+      %br
+      %br
+      %b Certificate id:
+      #{@enrollment.slug}
 
-%center
-  %h3
-    = image_tag wicked_pdf_asset_base64('favicon.png'), height: '30', width: 'auto'
-    %p
-    www.corsego.com
+      %p
+
+      %b Certificate url:
+      #{request.base_url}#{request.original_fullpath}
+
+      %br
+      %br
+      %br
+      %center
+        %h3
+          = image_tag wicked_pdf_asset_base64('favicon.png'), height: '30', width: 'auto'
+          %p
+          www.corsego.com
   
