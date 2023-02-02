@@ -115,3 +115,5 @@ gem 'wkhtmltopdf-binary', group: :development
 gem 'wkhtmltopdf-heroku', group: :production
 
 gem "wicked_pdf", "~> 2.6"
+
+gem "wicked", "~> 2.0"

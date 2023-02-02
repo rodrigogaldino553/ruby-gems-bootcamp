@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
     resources :enrollments, only: [:new, :create]
   end
+
+  resources :course_creator
   
   resources :youtube, only: :show
 
