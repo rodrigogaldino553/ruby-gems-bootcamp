@@ -1,43 +1,16 @@
-= content_for :title do
-  Corsego
-  \|
-  Editing
-  = @course.title
+= render layout: 'courses/course_wizard/step' do
+  = simple_form_for @course, url: course_course_wizard_path, method: :put do |f|
+    = f.input :title, input_html: { autocomplete: 'off' }
+    .row
+      - if @course.avatar.attached?
+        = image_tag @course.avatar, width: "200px"
+        .row
+        = @course.avatar.filename
+      .row
+        = f.input :avatar
 
-= link_to course_path(@course) do
-  = @course.title
-|
-.fa.fa-graduation-cap
-= link_to course_path(@course) do
-  = @course.title
-|
-= link_to course_course_wizard_index_path(@course, :basic_info) do
-  Edit
-  = step.to_s.humanize
+        = f.input :description, as: :rich_text_area
 
-.card
-  .progress
-    .progress-bar{style: "width: #{@progress}%;"}
-  .card-header
-    %h1
-      = wizard_steps.index(step) + 1
-      \/
-      = wizard_steps.count
-      = step.to_s.humanize
-  .card-body
-    = simple_form_for @course, url: course_course_wizard_path, method: :put do |f|
-      = f.input :level, collection: Course.levels, include_blank: true, as: :radio_buttons
-      = f.input :price, collection: [0, 9, 19, 49, 99, 149, 199], as: :radio_buttons
-      = f.input :published
+        = f.input :short_description
 
-      = f.label :tags
-      = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize-tags" }
-
-      = f.button :submit
-  .card-footer
-    = link_to course_path(@course), class: 'btn btn-sm btn-secondary' do
-      Cancel
-    
-    = link_to next_wizard_path, class: 'btn btn-sm btn-info' do
-      .fa.fa-arrow-right
-      Skip
+        = f.button :submit

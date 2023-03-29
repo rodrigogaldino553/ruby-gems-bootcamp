@@ -21,10 +21,10 @@ class Courses::CourseWizardController < ApplicationController
     @tags = Tag.all
     case step
     when :basic_info
-      @course.update_attributes course_params
+      @course.update(course_params)
     when :details
       @tags = Tag.all
-      @course.update_attributes course_params
+      @course.update(course_params)
     end
     render_wizard @course
   end
