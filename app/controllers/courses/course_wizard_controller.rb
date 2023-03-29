@@ -6,6 +6,7 @@ class Courses::CourseWizardController < ApplicationController
   steps :basic_info, :details
 
   def show
+    authorize @course, :edit?
     @tags = Tag.all
     case step
     when :basic_info
@@ -16,6 +17,7 @@ class Courses::CourseWizardController < ApplicationController
   end
 
   def update
+    authorize @course, :edit?
     @tags = Tag.all
     case step
     when :basic_info
@@ -28,6 +30,7 @@ class Courses::CourseWizardController < ApplicationController
   end
 
   def finish_wizard_path
+    authorize @course, :edit?
     course_path(@course)
   end
 
