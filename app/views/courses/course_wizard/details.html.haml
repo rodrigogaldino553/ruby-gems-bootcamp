@@ -6,8 +6,6 @@
 
     = f.input :price, collection: [0, 9, 19, 49, 99, 149, 199], as: :radio_buttons
 
-    = f.input :published
-
     = f.label :tags
     = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize-tags" }
 
