@@ -1,0 +1,50 @@
+- content_for :title do
+  Corsego 
+  \| 
+  Editing course
+  = @course.title
+
+= link_to 'Courses', courses_path
+|
+.fa.fa-graduation-cap
+= link_to course_path(@course) do
+  = @course.title
+|
+= link_to course_course_wizard_path(@course, :basic_info) do
+  Edit
+  = step.to_s.humanize
+
+.card
+  .progress
+    .progress-bar{style: "width: #{@progress}%"}= number_to_percentage(@progress, precision: 0)
+  .progress
+    - wizard_steps.each do |s|
+      - if current_page?(course_course_wizard_path(@course, s))
+        - @color = 'bg-success'
+      - else
+        - @color = 'bg-secondary'
+      = link_to course_course_wizard_path(@course, s), class: "progress-bar #{@color}", style: "width: #{@progress}%" do
+        = wizard_steps.index(s) + 1
+        = s.to_s.humanize
+  .card-header
+    %h5
+      = wizard_steps.index(step) + 1
+      \/
+      = wizard_steps.count
+      = step.to_s.humanize
+  .card-body
+    .container.text-danger
+      - if @course.errors.any?
+        - @course.errors.full_messages.each do |msg|
+          %li= msg
+
+    = yield
+  .card-footer
+    .float-left
+      = link_to previous_wizard_path, class: 'btn btn-sm btn-info' do
+        .fa.fa-arrow-left
+        Previous
+    .float-right
+      = link_to next_wizard_path, class: 'btn btn-sm btn-info' do
+        .fa.fa-arrow-right
+        Skip
