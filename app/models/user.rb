@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   rolify
 
+  
+  after_create do
+    UserMailer.new_user(self).deliver_later
+  end
+
   has_many :courses, dependent: :nullify
   has_many :enrollments, dependent: :nullify
   has_many :user_lessons, dependent: :nullify
