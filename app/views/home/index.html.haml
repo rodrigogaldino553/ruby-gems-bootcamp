@@ -13,7 +13,7 @@
     - if current_user
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
         .input-group
-          =f.search_field :title_or_short_description_cont, class: 'form-control-sm', style: 'float:left; width:150px;', placeholder: 'Find a course'
+          = f.search_field :title_or_short_description_cont, class: 'form-control-sm', style: 'float:left; width:150px;', placeholder: 'Find a course'
           %span.input-group-append
             %button.btn.btn-primary.btn-sm{:type => "submit"}
               %span.fa.fa-search{"aria-hidden" => "true"}

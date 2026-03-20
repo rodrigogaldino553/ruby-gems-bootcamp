@@ -68,4 +68,8 @@ class Course < ApplicationRecord
       update_column :average_rating, (0)
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["activities", "avatar_attachment", "avatar_blob", "course_tags", "enrollments", "lessons", "rich_text_description", "tags", "user", "user_lessons"]
+  end
 end

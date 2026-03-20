@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -42,10 +42,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'rails-erd'
   gem "letter_opener"
 end
@@ -66,7 +64,7 @@ gem 'haml-rails', '~> 2.0'
 # its a generator html/erb to haml
 gem 'simple_form'
 # easy to build flexibles forms components
-gem 'pagy'
+gem 'pagy', '~> 6.0'
 # make the pagination managment, like the nav pages in course index, and managing the items that are showed
 
 # database
@@ -85,6 +83,7 @@ gem 'rolify'
 gem 'pundit'
 # it's an authorization gem, it makes similar to can can can
 
+# gem "logger", "~> 1.5.3"
 # general_tools
 gem 'public_activity'
 # tracks users activity (we can say that notifications systems like that in instagram heart symbol works like this gem)

@@ -1,0 +1,41 @@
+services:
+    db:
+        image: postgres:16-alpine
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=password
+        ports:
+            - '5433:5432'
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+    redis:
+        image: redis:7.0.15-alpine
+        ports:
+          - '6379:6379'
+        volumes:
+          - redis_data:/data
+    web:
+        tty: true
+        stdin_open: true
+        build: .
+        command: bundle exec rails server -b 0.0.0.0
+        volumes:
+            - .:/rails
+            - gems:/usr/local/bundle
+            - node_modules:/rails/node_modules
+        ports:
+            - "3000:3000"
+        depends_on:
+            - db
+            - redis
+        environment:
+            - RAILS_ENV=development
+            - DATABASE_URL=postgresql://postgres:password@db:5432
+            - REDIS_URL=redis://redis:6379/0
+            - NODE_OPTIONS=--openssl-legacy-provider
+
+volumes:
+    postgres_data:
+    redis_data:
+    gems:
+    node_modules:

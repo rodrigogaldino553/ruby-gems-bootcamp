@@ -14,10 +14,15 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 # Pagy::DEFAULT[:page]   = 1                                  # default
-Pagy::DEFAULT[:items]  = 12                                   # default
+# Pagy::DEFAULT[:items]  = 12                                 # default
 # Pagy::DEFAULT[:outset] = 0                                  # default
 
-
+Pagy::DEFAULT.merge!(
+  items: 12,           # items per page
+  # limit: 20,         # Use 'items' instead of 'limit' in Pagy 6+
+  # page_param: :page,
+  # size: [1,4,4,1]
+)
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables
 # Pagy::DEFAULT[:size]       = [1,4,4,1]                       # default
