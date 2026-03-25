@@ -4,12 +4,6 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    # if params[:title]
-    #   @courses = Course.where('title ILIKE ?', "%#{params[:title]}%")
-    # else
-      # @courses = Course.all
-      # @q = Course.ransack(params[:q])
-      # @courses = @q.result.includes(:user)
     @ransack_path = courses_path
 
     @ransack_courses = Course.published.approved.ransack(params[:courses_search], search_key: :courses_search)
