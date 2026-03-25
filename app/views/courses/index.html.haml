@@ -18,8 +18,6 @@
       = search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f|
         = f.label :title
         = f.search_field :title_cont, placeholder: "Title", class: 'form-control form-control-sm'
-        = f.label :tag
-        = f.search_field :course_tags_tag_name_cont, placeholder: "Tag name", class: 'form-control form-control-sm'
         = f.label :description
         = f.search_field :short_description_cont, placeholder: "Description", class: 'form-control form-control-sm'
         = f.label :lang
@@ -28,8 +26,6 @@
         = f.select :level_cont, Course.levels, include_blank: true
         = f.label :price
         = f.search_field :price_eq, placeholder: "Price", class: 'form-control form-control-sm'
-        = f.label :teacher
-        = f.search_field :user_email_cont, placeholder: "User email", class: 'form-control form-control-sm'
         .row
         = sort_link(@ransack_courses, :price)
         .row
