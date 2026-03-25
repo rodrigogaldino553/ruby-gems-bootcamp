@@ -1,24 +1,27 @@
 class User < ApplicationRecord
+  extend FriendlyId
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :confirmable,
          :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
-
-  rolify
-
-  
-  after_create do
-    UserMailer.new_user(self).deliver_later
-  end
-
   has_many :courses, dependent: :nullify
   has_many :enrollments, dependent: :nullify
   has_many :user_lessons, dependent: :nullify
   has_many :comments, dependent: :nullify
+
+  validate :must_have_a_role, on: :update
+
+  rolify
+  friendly_id :email, use: :slugged
+
+
+  after_create :assign_default_role
+  after_create do
+    UserMailer.new_user(self).deliver_later
+  end
  
-  
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
@@ -53,25 +56,6 @@ class User < ApplicationRecord
     self.email.split(/@/).first
   end
 
-
-  extend FriendlyId
-  friendly_id :email, use: :slugged
-
-  after_create :assign_default_role
-
-  def assign_default_role
-    if User.count == 1
-      self.add_role(:admin) if self.roles.blank?
-      self.add_role(:teacher)
-      self.add_role(:student)
-    else
-      self.add_role(:student) if self.roles.blank?
-      self.add_role(:teacher)
-    end
-  end
-
-  validate :must_have_a_role, on: :update
-
   def online?
     updated_at > 2.minutes.ago
   end
@@ -90,6 +74,17 @@ class User < ApplicationRecord
   end
 
   private
+
+  def assign_default_role
+    if User.count == 1
+      self.add_role(:admin) if self.roles.blank?
+      self.add_role(:teacher)
+      self.add_role(:student)
+    else
+      self.add_role(:student) if self.roles.blank?
+      self.add_role(:teacher)
+    end
+  end
 
   def must_have_a_role
     unless roles.any?
