@@ -19,7 +19,7 @@ class Course < ApplicationRecord
   validates :avatar, presence: true, on: :update
   validates :avatar,
     content_type: ['image/png', 'image/jpg', 'image/jpeg'],
-    size: { less_than: 500.kilobytes, message: 'size shuld be under 500kb!' }
+    size: { less_than: 500.kilobytes, message: 'size should be under 500kb!' }
 
   scope :latest, ->  { limit(3).order(created_at: :desc) }
   scope :top_rated, ->  { limit(3).order(average_rating: :desc, created_at: :desc) }

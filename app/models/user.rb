@@ -16,7 +16,6 @@ class User < ApplicationRecord
   rolify
   friendly_id :email, use: :slugged
 
-
   after_create :assign_default_role
   after_create do
     UserMailer.new_user(self).deliver_later
