@@ -26,6 +26,15 @@
       = 'last_sign_in_ip'.humanize
       = user.last_sign_in_ip
     .card-footer
+      = 'course_income'.humanize
+      = user.course_income
+      .row
+      = 'enrollment_expenses'.humanize
+      = "$#{user.enrollment_expenses}"
+      .row
+      balance
+      = "$#{user.balance}"
+    .card-footer
       Courses created:
       = user.courses_count
       .row
