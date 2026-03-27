@@ -59,20 +59,6 @@ class User < ApplicationRecord
     updated_at > 2.minutes.ago
   end
 
-  def calculate_balance
-    update_column :course_income, (courses.map(&:income).sum)
-    update_column :balance, (course_income - enrollment_expenses)
-  end
-
-  def calculate_enrollment_expenses
-    update_column :enrollment_expenses, (enrollments.map(&:price).sum)
-    update_column :balance, (course_income - enrollment_expenses)
-  end
-
-  def buy_course(course)
-    self.enrollments.create(course: course, price: course.price)
-  end
-
   def view_lesson(lesson)
     user_lesson = self.user_lessons.where(lesson: lesson)
     unless user_lesson.any?

@@ -60,11 +60,6 @@ class Course < ApplicationRecord
     []
   end
 
-  def calculate_income
-    update_column :income, (enrollments.map(&:price).sum)
-    user.calculate_balance
-  end
-
   def bought(user)
     self.enrollments.where(user_id: [user.id], course_id: [self.id]).empty?
   end

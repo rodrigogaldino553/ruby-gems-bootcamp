@@ -17,13 +17,6 @@ class Enrollment < ApplicationRecord
 
   friendly_id :to_s, use: :slugged
 
-
-  after_create do
-    calculate_balance
-    EnrollmentMailer.student_enrollment(self).deliver_later
-    EnrollmentMailer.teatcher_enrollment(self).deliver_later
-  end
-
   after_save do
     unless rating.nil? || rating.zero?
       course.update_rating
@@ -32,7 +25,7 @@ class Enrollment < ApplicationRecord
 
   after_destroy do
     course.update_rating
-    calculate_balance
+    Enrollments::SyncBalanceService.new(self).call
   end
   
   def to_s
@@ -40,11 +33,6 @@ class Enrollment < ApplicationRecord
   end
 
   private
-
-  def calculate_balance
-    course.calculate_income
-    user.calculate_enrollment_expenses
-  end
 
   def cant_subscribe_to_own_course
     if self.new_record? && user_id.present? && (self.user_id == course.user_id)

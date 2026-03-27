@@ -51,8 +51,11 @@ class EnrollmentsController < ApplicationController
 
   # POST /enrollments or /enrollments.json
   def create
-    @enrollment = current_user.buy_course(@course)
-    redirect_to course_path(@course), notice: "You are enrolled!"
+    if Enrollments::EnrollUserService.new(current_user, @course).call
+      redirect_to course_path(@course), notice: "You are enrolled!"
+    else
+      redirect_to course_path(@course), alert: "Enrollment failed!"
+    end
     # @enrollment = current_user.buy_course(@course)
     # redirect_to course_path(@course), notice: "You are enrolled!"
     # EnrollmentMailer.student_enrollment(@enrollment).deliver_later
