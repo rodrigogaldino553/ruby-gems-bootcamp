@@ -4,7 +4,7 @@ class Enrollment < ApplicationRecord
   belongs_to :course, counter_cache: true
   belongs_to :user, counter_cache: true
 
-  validates :user, :course, presence: true
+  validates :user, :course, :price, presence: true
   validates_presence_of :rating, if: :review?
   validates_presence_of :review, if: :rating?
   validates_uniqueness_of :user_id, scope: :course_id
@@ -30,6 +30,15 @@ class Enrollment < ApplicationRecord
   
   def to_s
     user.to_s + " " + course.to_s
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["course_id", "created_at", "id", "price", "rating", "review", "slug", "updated_at", "user_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    # Add any associations you want searchable, or leave empty if none
+    []
   end
 
   private

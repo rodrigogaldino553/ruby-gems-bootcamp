@@ -68,6 +68,15 @@ class User < ApplicationRecord
     end
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["balance", "comments_count", "confirmation_sent_at", "confirmation_token", "confirmed_at", "course_income", "courses_count", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "enrollment_expenses", "enrollments_count", "expires", "expires_at", "id", "image", "last_sign_in_at", "last_sign_in_ip", "name", "provider", "refresh_token", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "slug", "token", "uid", "unconfirmed_email", "updated_at", "user_lessons_count"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    # Add any associations you want searchable, or leave empty if none
+    []
+  end
+
   private
 
   def assign_default_role

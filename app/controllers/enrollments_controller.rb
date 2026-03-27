@@ -51,34 +51,14 @@ class EnrollmentsController < ApplicationController
 
   # POST /enrollments or /enrollments.json
   def create
-    if Enrollments::EnrollUserService.new(current_user, @course).call
-      redirect_to course_path(@course), notice: "You are enrolled!"
+    script_token = params[:stripeToken]
+    enrollment = Enrollments::EnrollUserService.new(current_user, @course, script_token).call
+    if enrollment[:success]
+      redirect_to course_path(@course), notice: "You are enrolled to #{@course.title}!"
     else
-      redirect_to course_path(@course), alert: "Enrollment failed!"
+      flash[:error] = enrollment[:error_message]
+      redirect_to new_course_enrollment_path(@course)
     end
-    # @enrollment = current_user.buy_course(@course)
-    # redirect_to course_path(@course), notice: "You are enrolled!"
-    # EnrollmentMailer.student_enrollment(@enrollment).deliver_later
-    # EnrollmentMailer.teatcher_enrollment(@enrollment).deliver_later
-    # if @course.price > 0
-    #   flash[:alert] = "You can not access paid courses yet!"
-    #   redirect_to new_course_enrollment_path(@course)
-    # else
-    #   @enrollment = current_user.buy_course(@course)
-    #   redirect_to course_path(@course), notice: "You are enrolled!"
-    # end
-    # old approach
-    # @enrollment = Enrollment.new(enrollment_params)
-    # @enrollment.price = @enrollment.course.price
-    # respond_to do |format|
-    #   if @enrollment.save
-    #     format.html { redirect_to @enrollment, notice: "Enrollment was successfully created." }
-    #     format.json { render :show, status: :created, location: @enrollment }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @enrollment.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /enrollments/1 or /enrollments/1.json

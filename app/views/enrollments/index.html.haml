@@ -13,8 +13,6 @@
 %p
 
 = search_form_for @q, url: @ransack_path do |f|
-  = f.search_field :user_email_cont, placeholder: "user email"
-  = f.search_field :course_title_cont, placeholder: "course title"
   = f.search_field :price_eq, placeholder: "price"
   = f.search_field :rating_eq, placeholder: "rating"
   = f.search_field :review_cont, placeholder: "review"
